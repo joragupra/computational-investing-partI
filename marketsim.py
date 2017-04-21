@@ -33,8 +33,6 @@ def simulate(cash, order_file):
     append_column_sufix(holding_matrix, symbols, '_stocks')
     append_column_sufix(value_matrix, symbols, '_value')
 
-    adjusted_close_prices = data['close']['AAPL']
-
     return pd.concat([trade_matrix, holding_matrix, cash_matrix, value_matrix, portfolio_value], axis=1)
 
 def validate_input(input_values):
