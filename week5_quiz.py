@@ -11,7 +11,7 @@ def question1():
     * 1128000.0 to 1130000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 12, 6) + dt.timedelta(hours=16)]
 
@@ -25,7 +25,7 @@ def question2():
     * 1134000.0 to 1136000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 11, 9) + dt.timedelta(hours=16)]
 
@@ -39,7 +39,7 @@ def question3():
     * 1140000.0 to 1142000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 9, 26) + dt.timedelta(hours=16)]
 
@@ -53,7 +53,7 @@ def question4():
     * 1123000.0 to 1125000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 7, 21) + dt.timedelta(hours=16)]
 
@@ -67,7 +67,7 @@ def question5():
     * 1050000.0 to 1052000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 3, 28) + dt.timedelta(hours=16)]
 
@@ -82,7 +82,7 @@ def question6():
     * 1096000.0 to 1098000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz2.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders2_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 12, 6) + dt.timedelta(hours=16)]
 
@@ -96,7 +96,7 @@ def question7():
     * 1092000.0 to 1094000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz2.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders2_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 11, 9) + dt.timedelta(hours=16)]
 
@@ -110,7 +110,7 @@ def question8():
     * 1104000.0 to 1106000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz2.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders2_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 9, 26) + dt.timedelta(hours=16)]
 
@@ -124,7 +124,7 @@ def question9():
     * 1083000.0 to 1085000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz2.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders2_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 7, 21) + dt.timedelta(hours=16)]
 
@@ -138,7 +138,7 @@ def question10():
     * 1005000.0 to 1007000.0
     """
 
-    simulation_result = marketsim.simulate(1000000, 'orders_quiz2.csv')
+    simulation_result = marketsim.simulate(1000000, 'orders2_week5_quiz.csv')
 
     return q, simulation_result['portfolio_value'][dt.datetime(2011, 3, 28) + dt.timedelta(hours=16)]
 
