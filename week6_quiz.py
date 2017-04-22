@@ -45,7 +45,7 @@ def question1():
 
     fund, benchmark = an.analyze(analysis_file, benchmark_symbol)
 
-    return q, fund.sharpie
+    return q, fund.sharpe
 
 def question2():
     q = """
@@ -87,7 +87,7 @@ def question2():
 
     fund, benchmark = an.analyze(analysis_file, benchmark_symbol)
 
-    return q, fund.sharpie
+    return q, fund.sharpe
 
 def question3():
     q = """
@@ -129,7 +129,7 @@ def question3():
 
     fund, benchmark = an.analyze(analysis_file, benchmark_symbol)
 
-    return q, fund.sharpie
+    return q, fund.sharpe
 
 def question4():
     q = """
@@ -172,7 +172,7 @@ def question4():
 
     fund, benchmark = an.analyze(analysis_file, benchmark_symbol)
 
-    return q, fund.sharpie
+    return q, fund.sharpe
 
 def question5():
     q = """
@@ -214,7 +214,7 @@ def question5():
 
     fund, benchmark = an.analyze(analysis_file, benchmark_symbol)
 
-    return q, fund.sharpie
+    return q, fund.sharpe
 
 def question6():
     q = """

@@ -32,19 +32,19 @@ def analyze(analysis_file, benchmark_symbol):
     ts_benchmakr_daily_returns = calculate_daily_returns(ts_benchmark_close_prices)
     ts_benchmakr_cumulative_returns = caculate_cumulative_return(ts_benchmark_close_prices)
 
-    benchmark_std_dev, benchmark_avg, benchmark_sharpie = evaluate(ts_benchmakr_daily_returns)
-    fund_std_dev, fund_avg, fund_sharpie = evaluate(ts_daily_returns)
+    benchmark_std_dev, benchmark_avg, benchmark_sharpe = evaluate(ts_benchmakr_daily_returns)
+    fund_std_dev, fund_avg, fund_sharpe = evaluate(ts_daily_returns)
 
     fund_total_return = ts_cumulative_returns.irow(len(ts_cumulative_returns.index)-1)
     benchmark_total_return = ts_benchmakr_cumulative_returns.irow(len(ts_benchmakr_cumulative_returns.index)-1)
 
-    return analysis_result(fund_std_dev, fund_avg, fund_sharpie, fund_total_return), analysis_result(benchmark_std_dev, benchmark_avg, benchmark_sharpie, benchmark_total_return)
+    return analysis_result(fund_std_dev, fund_avg, fund_sharpe, fund_total_return), analysis_result(benchmark_std_dev, benchmark_avg, benchmark_sharpe, benchmark_total_return)
 
 class analysis_result:
-    def __init__(self, std_dev, avg, sharpie, total_return):
+    def __init__(self, std_dev, avg, sharpe, total_return):
         self.std_dev = std_dev
         self.avg = avg
-        self.sharpie = sharpie
+        self.sharpe = sharpe
         self.total_return = total_return
 
 def check_number_params(input_values):
@@ -111,13 +111,13 @@ def read_benchmark_data(start_date, end_date, symbol):
 def evaluate(ts_daily_returns):
     std_dev = np.std(ts_daily_returns)
     avg = np.average(ts_daily_returns)
-    sharpie_ratio = np.sqrt(252) * avg / std_dev
+    sharpe_ratio = np.sqrt(252) * avg / std_dev
 
-    return std_dev, avg, sharpie_ratio
+    return std_dev, avg, sharpe_ratio
 
 def print_analysis_results(fund, benchmark, benchmark_symbol):
-    print 'Sharpe Ratio of Fund: %.13f' % fund.sharpie
-    print 'Sharpe Ratio of %s: %.13f' % (benchmark_symbol, benchmark.sharpie)
+    print 'Sharpe Ratio of Fund: %.13f' % fund.sharpe
+    print 'Sharpe Ratio of %s: %.13f' % (benchmark_symbol, benchmark.sharpe)
 
     print 'Total Return of Fund: %.13f' % fund.total_return
     print 'Total Return of %s: %.13f' % (benchmark_symbol, benchmark.total_return)

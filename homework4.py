@@ -34,8 +34,8 @@ def main():
     print 'The final value of the portfolio using the sample file is -- %s' % fund_value_file_lines[-1]
     print 'Details of the Performance of the portfolio\n'
     print 'Data Range: %s to %s\n' % (str(dt_start + dt.timedelta(hours=16)), str(dt_end + dt.timedelta(hours=16)))
-    print 'Sharpe Ratio of Fund : %.13f' % fund.sharpie
-    print 'Sharpe Ratio of $SPX : %.13f\n' % benchmark.sharpie
+    print 'Sharpe Ratio of Fund : %.13f' % fund.sharpe
+    print 'Sharpe Ratio of $SPX : %.13f\n' % benchmark.sharpe
     print 'Total Return of Fund : %.13f' % fund.total_return
     print 'Total Return of $SPX : %.13f\n' % benchmark.total_return
     print 'Standard Deviation of Fund : %.13f' % fund.std_dev
