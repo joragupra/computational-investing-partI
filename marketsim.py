@@ -92,8 +92,8 @@ def read_data(dt_start, dt_end, ls_symbols):
     return d_data
 
 def create_trade_matrix(order_file, init_date, end_date, symbols):
-    dates = du.getNYSEdays(init_date, end_date + dt.timedelta(days=1) , dt.timedelta(hours=16)) ##pd.date_range(init_date, end_date).tolist()
-
+    dates = du.getNYSEdays(init_date, end_date + dt.timedelta(days=1) , dt.timedelta(hours=16))
+    
     trade_matrix = pd.DataFrame(data=np.zeros((len(dates), len(symbols))), index=dates, columns=symbols)
 
     reader = csv.reader(open(order_file, 'rU'), delimiter=',')
