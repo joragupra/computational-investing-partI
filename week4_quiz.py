@@ -10,6 +10,7 @@ import QSTK.qstkutil.tsutil as tsu
 # changed to a fixed version of EventProfiler
 import EventProfiler as ep
 import homework2 as hw
+import events as ev
 
 def question1():
     q = """
@@ -29,11 +30,11 @@ def question1():
 
     ls_2012_symbols = hw.get_symbols_in_year(dataobj, 2012)
     d_2012_data = hw.get_data(dataobj, ldt_timestamps, ls_2012_symbols)
-    hw.profile_5_dollar_events(ls_2012_symbols, d_2012_data, 'SP500_2012.pdf')
+    ev.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 5.0, 'SP500_2012.pdf')
 
     ls_2008_symbols = hw.get_symbols_in_year(dataobj, 2008)
     d_2008_data = hw.get_data(dataobj, ldt_timestamps, ls_2008_symbols)
-    hw.profile_5_dollar_events(ls_2008_symbols, d_2008_data, 'SP500_2008.pdf')
+    ev.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 5.0, 'SP500_2008.pdf')
 
     # after analyzing the results for equities from both years
     return q, 'S&P5002012'
@@ -55,7 +56,7 @@ def question2():
 
     ls_2008_symbols = hw.get_symbols_in_year(dataobj, 2008)
     d_2008_data = hw.get_data(dataobj, ldt_timestamps, ls_2008_symbols)
-    hw.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 6.0, 'SP500_2008_6dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 6.0, 'SP500_2008_6dollar.pdf')
 
     # after looking into the generated event report
     return q, '386'
@@ -78,7 +79,7 @@ def question3():
 
     ls_2008_symbols = hw.get_symbols_in_year(dataobj, 2008)
     d_2008_data = hw.get_data(dataobj, ldt_timestamps, ls_2008_symbols)
-    hw.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 7.0, 'SP500_2008_7dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 7.0, 'SP500_2008_7dollar.pdf')
 
     # after looking into the generated event report
     return q, '468'
@@ -101,7 +102,7 @@ def question4():
 
     ls_2008_symbols = hw.get_symbols_in_year(dataobj, 2008)
     d_2008_data = hw.get_data(dataobj, ldt_timestamps, ls_2008_symbols)
-    hw.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 8.0, 'SP500_2008_8dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 8.0, 'SP500_2008_8dollar.pdf')
 
     # after looking into the generated event report
     return q, '527'
@@ -124,7 +125,7 @@ def question5():
 
     ls_2008_symbols = hw.get_symbols_in_year(dataobj, 2008)
     d_2008_data = hw.get_data(dataobj, ldt_timestamps, ls_2008_symbols)
-    hw.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 9.0, 'SP500_2008_9dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 9.0, 'SP500_2008_9dollar.pdf')
 
     # after looking into the generated event report
     return q, '596'
@@ -147,7 +148,7 @@ def question6():
 
     ls_2008_symbols = hw.get_symbols_in_year(dataobj, 2008)
     d_2008_data = hw.get_data(dataobj, ldt_timestamps, ls_2008_symbols)
-    hw.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 10.0, 'SP500_2008_10dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2008_symbols, d_2008_data, 10.0, 'SP500_2008_10dollar.pdf')
 
     # after looking into the generated event report
     return q, '643'
@@ -169,7 +170,7 @@ def question7():
 
     ls_2012_symbols = hw.get_symbols_in_year(dataobj, 2012)
     d_2012_data = hw.get_data(dataobj, ldt_timestamps, ls_2012_symbols)
-    hw.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 6.0, 'SP500_2012_6dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 6.0, 'SP500_2012_6dollar.pdf')
 
     # after looking into the generated event report
     return q, '224'
@@ -192,7 +193,7 @@ def question8():
 
     ls_2012_symbols = hw.get_symbols_in_year(dataobj, 2012)
     d_2012_data = hw.get_data(dataobj, ldt_timestamps, ls_2012_symbols)
-    hw.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 7.0, 'SP500_2012_7dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 7.0, 'SP500_2012_7dollar.pdf')
 
     # after looking into the generated event report
     return q, '282'
@@ -215,7 +216,7 @@ def question9():
 
     ls_2012_symbols = hw.get_symbols_in_year(dataobj, 2012)
     d_2012_data = hw.get_data(dataobj, ldt_timestamps, ls_2012_symbols)
-    hw.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 8.0, 'SP500_2012_8dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 8.0, 'SP500_2012_8dollar.pdf')
 
     # after looking into the generated event report
     return q, '375'
@@ -238,7 +239,7 @@ def question10():
 
     ls_2012_symbols = hw.get_symbols_in_year(dataobj, 2012)
     d_2012_data = hw.get_data(dataobj, ldt_timestamps, ls_2012_symbols)
-    hw.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 9.0, 'SP500_2012_9dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 9.0, 'SP500_2012_9dollar.pdf')
 
     # after looking into the generated event report
     return q, '451'
@@ -261,7 +262,7 @@ def question11():
 
     ls_2012_symbols = hw.get_symbols_in_year(dataobj, 2012)
     d_2012_data = hw.get_data(dataobj, ldt_timestamps, ls_2012_symbols)
-    hw.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 10.0, 'SP500_2012_10dollar.pdf')
+    ev.profile_threshold_actual_close_events(ls_2012_symbols, d_2012_data, 10.0, 'SP500_2012_10dollar.pdf')
 
     # after looking into the generated event report
     return q, '461'

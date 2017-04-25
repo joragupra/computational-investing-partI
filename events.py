@@ -12,6 +12,7 @@ import QSTK.qstkutil.tsutil as tsu
 # changed to a fixed version of EventProfiler
 import EventProfiler as ep
 from pandas.tseries.offsets import BDay
+import techanalysis as ta
 
 def main():
     dt_start, dt_end, order_file = validate_input()
@@ -79,9 +80,6 @@ def get_data(dataobj, ldt_timestamps, ls_symbols):
 
     return d_data
 
-def profile_5_dollar_events(ls_symbols, d_data, filename):
-    profile_threshold_actual_close_events(ls_symbols, d_data, 5.0, filename)
-
 def profile_threshold_actual_close_events(ls_symbols, d_data, actual_close_threshold, filename):
     df_events = find_price_drop_events(ls_symbols, d_data, actual_close_threshold)
     ep.eventprofiler(df_events, d_data, i_lookback=20, i_lookforward=20,
@@ -124,7 +122,7 @@ def find_6_dollar_events(ls_symbols, d_data):
 
 def find_7_dollar_events(ls_symbols, d_data):
     ''' Finding events when a stock price moved from above 7$ to below 7$ '''
-    return find_price_drop_events(ls_symbols, d_data,7.0)
+    return find_price_drop_events(ls_symbols, d_data, 7.0)
 
 def find_8_dollar_events(ls_symbols, d_data):
     ''' Finding events when a stock price moved from above 8$ to below 8$ '''
@@ -137,6 +135,26 @@ def find_9_dollar_events(ls_symbols, d_data):
 def find_10_dollar_events(ls_symbols, d_data):
     ''' Finding events when a stock price moved from above 10$ to below 10$ '''
     return find_price_drop_events(ls_symbols, d_data, 10.0)
+
+def find_bollinger_events(ls_symbols, d_data, stock_bollinger_threshold, spy_bollinger_threshold):
+    ''' Finding events when the provided function is triggered '''
+    df_close = d_data['close']
+
+    df_events = initialize_event_dataframe(df_close)
+
+    ldt_timestamps = d_data['close'].index
+
+    look_back_days = 20
+    spy_bollinger = ta.calculate_bollinger_data(df_close['SPY'], look_back_days)
+
+    for s_sym in ls_symbols:
+        sym_bollinger = ta.calculate_bollinger_data(df_close[s_sym], look_back_days)
+
+        for i in range(1, len(ldt_timestamps)):
+            if sym_bollinger['bollinger'].ix[ldt_timestamps[i]] <= stock_bollinger_threshold and sym_bollinger['bollinger'].ix[ldt_timestamps[i-1]] >= stock_bollinger_threshold and spy_bollinger['bollinger'].ix[ldt_timestamps[i]] >= spy_bollinger_threshold:
+                df_events[s_sym].ix[ldt_timestamps[i]] = 1
+
+    return df_events
 
 def generate_orders(ls_symbols, df_events, order_file):
     file_out = open(order_file, 'w')

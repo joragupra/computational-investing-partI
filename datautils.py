@@ -18,3 +18,11 @@ def get_data(dt_start, dt_end, ls_symbols):
         d_data[s_key] = d_data[s_key].fillna(1.0)
 
     return d_data
+
+def get_symbols_in_year(year):
+    dataobj = da.DataAccess('Yahoo')
+
+    ls_symbols = dataobj.get_symbols_from_list('sp500' + str(year))
+    ls_symbols.append('SPY')
+
+    return ls_symbols
